@@ -49,17 +49,6 @@
 <div class="container">
 <div class="row">
     <h2 style="color:black ;">Gray-Scale Image</h2>
-    <p>
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <ul>
-            {% for message in messages %}
-              <li>{{ message }}</li>
-            {% endfor %}
-            </ul>
-          {% endif %}
-        {% endwith %}
-    </p>
     {% if filename %}
         <div>
             <img src="{{ url_for('display_image_input', filename=filename) }}">
@@ -71,14 +60,13 @@
                 <input type="file" name="file" class="form-control" autocomplete="off" required>
             </p>
         </dl>
-        <p>
+        <p style="width:100%;display:flex;justify-content: center;">
             <input type="submit" value="Submit" class="btn btn-info">
         </p>
     </form>
 </div>
 <div class="row">
   <h2 style="background-image: linear-gradient(to right,red,green,blue);">Output - Color Image</h2>
-  <a class="btn btn-info" href="#">Display Output</a>
   {%if filename %}
   <div>
     <img src="{{ url_for('display_image_output', filename=filename) }}">
