@@ -11,12 +11,10 @@ def use_model(filename):
     model = keras.models.load_model('./../my_model/output_model')
     color_me = []
     test_dataset_loc = './static/uploads/'
-
-    for filename in os.listdir(test_dataset_loc)[0: 1]:
-        color_me.append(img_to_array(load_img(test_dataset_loc + '/' + filename, target_size=(256, 256))))
-        color_me = np.array(color_me, dtype=float)
-        color_me = rgb2lab(1.0/255*color_me)[:,:,:,0]
-        color_me = color_me.reshape(color_me.shape+(1,))
+    color_me.append(img_to_array(load_img(test_dataset_loc + '/' + filename, target_size=(256, 256))))
+    color_me = np.array(color_me, dtype=float)
+    color_me = rgb2lab(1.0/255*color_me)[:,:,:,0]
+    color_me = color_me.reshape(color_me.shape+(1,))
 
     print(color_me.shape)
 
