@@ -1,2 +1,2 @@
 # grayscale-colorizer
-Convert the grayscale image into it's RGB equivalent
+Convert the grayscale image into it's RGB equivalent.
