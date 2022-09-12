@@ -3,12 +3,52 @@
 <title>Python Flask Upload and display image</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />		
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<style>
+  *{
+    box-sizing: border-box;
+  }
+  body{
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .container{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgba(215, 215, 215,0.5);
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .row{
+    width: 40%;
+    height: 50%;
+    align-self: center;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+  }
+  h2{
+    background-color: rgba(128, 128, 128,0.7);
+    width: 100%;
+    justify-content: space-evenly;
+    text-align: center;
+    color: white;
+  }
+</style>
 </head>
 <body>
-<p><h1 align="center">Image Colorizer</h1></p>
+<p><h1 align="center">Gray-Scale Colorizer</h1></p>
 <div class="container">
 <div class="row">
-    <h2>Select a black and white image to upload</h2>
+    <h2 style="color:black ;">Gray-Scale Image</h2>
     <p>
         {% with messages = get_flashed_messages() %}
           {% if messages %}
@@ -37,7 +77,7 @@
     </form>
 </div>
 <div class="row">
-  <h2>Output - Color Image</h2>
+  <h2 style="background-image: linear-gradient(to right,red,green,blue);">Output - Color Image</h2>
   <a class="btn btn-info" href="#">Display Output</a>
   {%if filename %}
   <div>
