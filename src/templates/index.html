@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <body>
+      <h1>Home</h1>
+      <p>Home page</p>
+      <form method="post" action="/" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        {{ form.image.label }} {{ form.image() }}
+        {{ form.submit() }}
+      </form>
+  </head>
+</html>
