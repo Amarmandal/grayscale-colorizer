@@ -38,18 +38,18 @@ def upload_image():
         return redirect(request.url)
     file = request.files['file']
     if file.filename == '':
-        flash('No image selected for uploading')
+        flash('Please select image for uploading. No image selected!!')
         return redirect(request.url)
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         save_picture(file)
         #print('upload_image filename: ' + filename)
-        flash('Image successfully uploaded and displayed below')
+        flash('Image successfully uploaded and displayed as below:')
         use_model(filename)
         # shutil.copyfile(f"./static/uploads/{filename}",f"./static/outputs/{filename}")
         return render_template('index.html', filename=filename)
     else:
-        flash('Allowed image types are - png, jpg, jpeg, gif')
+        flash('Allowed image types are: png, jpg and jpeg')
         return redirect(request.url)
 
 @app.route('/display/input/<filename>')
